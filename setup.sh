@@ -40,6 +40,11 @@ Assetfinder() {
 	go get -u github.com/tomnomnom/assetfinder &>/dev/null
 	printf "[+] Assetfinder Installed !.\n"
 }
+Github Subdomains() {
+	printf "                                \r"
+	go get -u github.com/gwen001/github-subdomains &>/dev/null
+	printf "[+] Github Subdomains !.\n"
+}
 
 Httprobe() {
 	printf "                                \r"
@@ -55,6 +60,7 @@ hash findomain 2>/dev/null && printf "[!] Findomain is already installed.\n" || 
 hash subfinder 2>/dev/null && printf "[!] subfinder is already installed.\n" || { printf "[+] Installing subfinder!" && Subfinder; }
 hash amass 2>/dev/null && printf "[!] Amass is already installed.\n" || { printf "[+] Installing Amass!" && Amass; }
 hash assetfinder 2>/dev/null && printf "[!] Assetfinder is already installed.\n" || { printf "[+] Installing Assetfinder!" && Assetfinder; }
+github-subdomains 2>/dev/null && printf "[!] Github Subdomains is already installed.\n" || { printf "[+] Installing Github Subdomains!" && Github Subdomains; }
 hash httprobe 2>/dev/null && printf "[!] Httprobe is already installed.\n" || { printf "[+] Installing Httprobe!" && Httprobe; }
 
 list=(
@@ -63,6 +69,7 @@ list=(
 	subfinder
 	amass
 	assetfinder
+	Github Subdomains
 	httprobe
 	)
 

@@ -5,6 +5,7 @@
 #   * SubFinder: https://github.com/projectdiscovery/subfinder
 #   * Amass: https://github.com/OWASP/Amass
 #   * AssetFinder: https://github.com/tomnomnom/assetfinder
+#   * Github Subdomains: https://github.com/gwen001/github-subdomains
 #
 # a perl version is being developed by @terminalforlife 
 #   * https://github.com/terminalforlife/PerlProjects/tree/master/source/dominator
@@ -40,7 +41,7 @@ Usage(){
 	\r    -v, --version      - Displays the version and exit.
 
 	\r#Available Tools:
-	\r	  wayback,crt,bufferover,Findomain,Subfinder,Amass,Assetfinder
+	\r	  wayback,crt,bufferover,Findomain,Subfinder,Amass,Assetfinder,Github Subdomains
 
 	\r#Examples:
 	\r	  - To use a specific Tools:
@@ -123,6 +124,14 @@ Assetfinder() {
 	}
 }
 
+github-subdomains() {
+	[ "$silent" == True ] && github-subdomains -d $domain -t n2gittoken.txt | anew subenum-$domain.txt || {
+		printf "$bold[+] github-subdomains$end"
+		printf "                        \r"
+		github-subdomains -d $domain -t n2gittoken.txt > tmp-github-subdomains-$domain
+		echo -e "$bold[*] github-subdomains$end: $(wc -l < tmp-github-subdomain-$domain)"
+	}
+}
 
 USE() {
 	for i in $lu; do
@@ -177,6 +186,7 @@ LIST() {
 			Subfinder 
 			Amass 
 			Assetfinder
+			Github-Subdomains
 			OUT
 		}
 		[ $prv == "e" ] && EXCLUDE 
@@ -197,6 +207,7 @@ Main() {
 			Subfinder 
 			Amass 
 			Assetfinder
+			Github-Subdomains
 			[ "$out" == False ] && OUT || OUT $out
 		} || { 
 			[ $use != False ] && USE 
@@ -230,6 +241,7 @@ list=(
 	Subfinder 
 	Amass 
 	Assetfinder
+	Github-Subdomains
 	)
 
 while [ -n "$1" ]; do

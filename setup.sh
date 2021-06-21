@@ -40,7 +40,7 @@ Assetfinder() {
 	go get -u github.com/tomnomnom/assetfinder &>/dev/null
 	printf "[+] Assetfinder Installed !.\n"
 }
-Github Subdomains() {
+Github-Subdomains() {
 	printf "                                \r"
 	go get -u github.com/gwen001/github-subdomains &>/dev/null
 	printf "[+] Github Subdomains !.\n"
